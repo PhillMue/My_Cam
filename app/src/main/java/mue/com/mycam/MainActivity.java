@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.firebase.client.Firebase;
+
 import java.io.File;
 
 public class MainActivity extends Activity {
@@ -23,6 +25,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Firebase.setAndroidContext(this);
+        Firebase myFirebaseRef = new Firebase("https://glowing-fire-4156.firebaseio.com/");
         button = (Button) findViewById(R.id.button);
         imageView = (ImageView)findViewById(R.id.image_view);
         button.setOnClickListener(new View.OnClickListener() {
