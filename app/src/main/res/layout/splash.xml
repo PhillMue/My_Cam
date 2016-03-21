@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rsz_camera"
+    android:background="@drawable/cam"
     android:orientation="vertical">
 
 </LinearLayout>
