@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,14 +45,21 @@ public class MainActivity extends Activity {
     private File getFile(){
 
         File folder = new File("sdcard/camera_app");
-
-        if(!folder.exists())
-        {
-            folder.mkdir();
+        boolean success = false;
+        if(!folder.exists()){
+            // Create folder if it doesn't exist
+            success = folder.mkdir();
         }
+        if(!success){
+            Log.d("MAIN", "Folder not Created");
+        } else {
+            Log.d("MAIN", "Folder  Created");
+        }
+        // Create image file
+        File image_file = new File(folder, "cam_image.jpg");
 
-        File image_file = new File(folder,"cam_image.jpg");
         return image_file;
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
